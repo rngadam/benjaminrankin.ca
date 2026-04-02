@@ -12,3 +12,4 @@ https://x.com/LesVertsCanada/status/2031368747659800981
 Instagram parti vert
 https://www.instagram.com/thegreenparty_canada
 
+Approuvé par l'agente officielle de Benjamin Rankin

@@ -27,6 +27,41 @@
       }
     }
   </script>
+  <style>
+    .flip-card {
+      background-color: transparent;
+      aspect-ratio: 1 / 1;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-gray-50 font-sans text-gray-800 overflow-x-hidden">
 
@@ -179,6 +214,22 @@
     </div>
   </section>
 
+  <!-- Section Thèmes -->
+  <section id="themes" class="py-20 px-4 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 relative">
+        <h2 class="text-3xl font-bold text-gray-900 inline-block relative">
+          Thèmes de campagne
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-brand-green rounded-full"></div>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" id="theme-cards-container">
+        <!-- Les cartes seront générées par JavaScript -->
+      </div>
+    </div>
+  </section>
+
   <!-- Section Pourquoi voter Vert ? -->
   <section id="pourquoi-voter-vert" class="py-20 px-4 bg-white border-t border-gray-100">
     <div class="max-w-4xl mx-auto text-center">
@@ -317,6 +368,77 @@
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => toggleMobileMenu(true));
     });
+
+    // Logique des cartes thématiques
+    const themeImages = [
+      "GP-FR-Social-Media-Affordable-Housing.png",
+      "GP-FR-Social-Media-Caring-for-Canadians.png",
+      "GP-FR-Social-Media-Climate-Action.png",
+      "GP-FR-Social-Media-Disability-Justice.png",
+      "GP-FR-Social-Media-Emergency-Preparedness.png",
+      "GP-FR-Social-Media-Fair-Taxation.png",
+      "GP-FR-Social-Media-Green-Democracy.png",
+      "GP-FR-Social-Media-Indigenous-Reconciliation.png",
+      "GP-FR-Social-Media-More-Health-Care.png",
+      "GP-FR-Social-Media-Peace-and-Security.png",
+      "GP-FR-Social-Media-Stop-the-Hate.png",
+      "GP-FR-Social-Media-Strong-Democracy.png"
+    ];
+
+    // Initialize state
+    const numCards = 4;
+    let cardCurrentIndices = [0, 1, 2, 3];
+    let nextImageIndex = 4;
+
+    const container = document.getElementById('theme-cards-container');
+
+    // Create initial cards
+    for (let i = 0; i < numCards; i++) {
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+      card.id = `theme-card-${i}`;
+
+      card.innerHTML = `
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="${themeImages[cardCurrentIndices[i]]}" alt="Thème ${i+1}" class="w-full h-full object-cover">
+          </div>
+          <div class="flip-card-back">
+            <img src="${themeImages[cardCurrentIndices[i]]}" alt="Thème ${i+1} back" class="w-full h-full object-cover">
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    }
+
+    // Function to flip a specific card
+    function flipCard(cardIndex) {
+      const card = document.getElementById(`theme-card-${cardIndex}`);
+      const isFlipped = card.classList.contains('flipped');
+      const nextImgUrl = themeImages[nextImageIndex];
+
+      // Update the index for the next image
+      nextImageIndex = (nextImageIndex + 1) % themeImages.length;
+
+      if (isFlipped) {
+        // Currently showing back, update front and flip to front
+        const frontImg = card.querySelector('.flip-card-front img');
+        frontImg.src = nextImgUrl;
+        card.classList.remove('flipped');
+      } else {
+        // Currently showing front, update back and flip to back
+        const backImg = card.querySelector('.flip-card-back img');
+        backImg.src = nextImgUrl;
+        card.classList.add('flipped');
+      }
+    }
+
+    // Start rotation
+    let currentCardToFlip = 0;
+    setInterval(() => {
+      flipCard(currentCardToFlip);
+      currentCardToFlip = (currentCardToFlip + 1) % numCards;
+    }, 2000); // Flip one card every 2 seconds
   </script>
 </body>
 </html>

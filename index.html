@@ -28,19 +28,19 @@
     }
   </script>
 </head>
-<body class="min-h-screen bg-gray-50 font-sans text-gray-800">
+<body class="min-h-screen bg-gray-50 font-sans text-gray-800 overflow-x-hidden">
 
   <!-- Navigation -->
   <nav class="bg-brand-darkgreen text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
-        <div class="flex items-center space-x-2">
-          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Parti Vert" class="h-10">
-          <span class="font-bold text-xl tracking-tight ml-2">Benjamin Rankin</span>
-        </div>
+        <a href="#accueil" class="flex items-center space-x-2 min-w-0 mr-4" aria-label="Accueil - Benjamin Rankin">
+          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-7 sm:h-8 md:h-10 shrink-0">
+          <span class="font-bold text-base sm:text-lg md:text-xl tracking-tight ml-2 truncate">Benjamin Rankin</span>
+        </a>
         
         <!-- Navigation Bureau -->
-        <div class="hidden md:flex space-x-8 items-center">
+        <div class="hidden md:flex space-x-8 items-center shrink-0">
           <a href="#accueil" class="hover:text-brand-green transition">Accueil</a>
           <a href="#apropos" class="hover:text-brand-green transition">À propos</a>
           <a href="#priorites" class="hover:text-brand-green transition">Priorités</a>
@@ -51,17 +51,17 @@
         </div>
 
         <!-- Menu Mobile Bouton -->
-        <div class="md:hidden flex items-center">
-          <button id="mobile-menu-btn" class="focus:outline-none">
-            <i data-lucide="menu" id="menu-icon" class="h-6 w-6"></i>
-            <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden"></i>
+        <div class="md:hidden flex items-center shrink-0">
+          <button id="mobile-menu-btn" class="focus:outline-none" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <i data-lucide="menu" id="menu-icon" class="h-6 w-6" aria-hidden="true"></i>
+            <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Liens Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-brand-darkgreen pb-4 px-4 shadow-inner">
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-darkgreen pb-4 px-4 shadow-inner" role="region" aria-label="Menu de navigation mobile">
       <a href="#accueil" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">Accueil</a>
       <a href="#apropos" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">À propos</a>
       <a href="#priorites" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">Priorités</a>
@@ -103,7 +103,7 @@
   <!-- Section À Propos -->
   <section id="apropos" class="py-20 px-4 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Parti Vert" class="h-16 mx-auto mb-8">
+      <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Logo du Parti Vert" class="h-16 mx-auto mb-8">
       <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
         À propos de Benjamin
         <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand-green rounded-full"></div>
@@ -125,10 +125,12 @@
   <!-- Section Priorités -->
   <section id="priorites" class="py-20 px-4 bg-gray-50">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 mb-16 text-center relative inline-block left-1/2 transform -translate-x-1/2">
-        Mes priorités nationales et locales
-        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-brand-green rounded-full"></div>
-      </h2>
+      <div class="text-center mb-16 relative">
+        <h2 class="text-3xl font-bold text-gray-900 inline-block relative">
+          Mes priorités nationales et locales
+          <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-brand-green rounded-full"></div>
+        </h2>
+      </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Carte 1 -->
@@ -223,10 +225,10 @@
   <footer id="contact" class="bg-gray-950 text-gray-300 py-16 px-4">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 border-b border-gray-800 pb-12">
       <div>
-        <div class="flex items-center space-x-3 mb-6">
-          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Parti Vert" class="h-12">
-          <span class="font-bold text-2xl text-white tracking-tight">Benjamin Rankin</span>
-        </div>
+        <a href="#accueil" class="flex flex-wrap items-center gap-3 mb-6 inline-flex" aria-label="Accueil - Benjamin Rankin">
+          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-8 sm:h-10 md:h-12">
+          <span class="font-bold text-xl sm:text-2xl text-white tracking-tight">Benjamin Rankin</span>
+        </a>
         <p class="mb-6 text-gray-400 max-w-sm leading-relaxed">
           Candidat du Parti vert du Canada pour la circonscription de Terrebonne. Bâtissons ensemble un Canada équitable et durable.
         </p>
@@ -275,18 +277,28 @@
     const closeIcon = document.getElementById('close-icon');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      menuIcon.classList.toggle('hidden');
-      closeIcon.classList.toggle('hidden');
-    });
+    function toggleMobileMenu(forceClose = false) {
+      const isHidden = mobileMenu.classList.contains('hidden');
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
+      if (forceClose || !isHidden) {
         mobileMenu.classList.add('hidden');
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
-      });
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.setAttribute('aria-label', 'Ouvrir le menu de navigation');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuBtn.setAttribute('aria-label', 'Fermer le menu de navigation');
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMobileMenu(true));
     });
   </script>
 </body>

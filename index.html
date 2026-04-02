@@ -6,25 +6,46 @@
   <title>Benjamin Rankin - Candidat du Parti vert</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <meta name="description" content="Benjamin Rankin - Candidat du Parti vert du Canada pour la circonscription de Terrebonne.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-green': '#24B24A',
+            'brand-darkgreen': '#1A402E',
+            'brand-light': '#F5F5F0',
+            'brand-accent': '#FFD61C',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="min-h-screen bg-gray-50 font-sans text-gray-800">
 
   <!-- Navigation -->
-  <nav class="bg-green-700 text-white sticky top-0 z-50 shadow-md">
+  <nav class="bg-brand-darkgreen text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center space-x-2">
-          <i data-lucide="leaf" class="h-6 w-6"></i>
-          <span class="font-bold text-xl tracking-tight">Benjamin Rankin</span>
+          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Parti Vert" class="h-10">
+          <span class="font-bold text-xl tracking-tight ml-2">Benjamin Rankin</span>
         </div>
         
         <!-- Navigation Bureau -->
         <div class="hidden md:flex space-x-8 items-center">
-          <a href="#accueil" class="hover:text-green-200 transition">Accueil</a>
-          <a href="#apropos" class="hover:text-green-200 transition">À propos</a>
-          <a href="#priorites" class="hover:text-green-200 transition">Priorités</a>
-          <a href="#terrebonne" class="hover:text-green-200 transition">Terrebonne</a>
-          <a href="#contact" class="bg-white text-green-700 px-4 py-2 rounded-full font-semibold hover:bg-green-50 transition">
+          <a href="#accueil" class="hover:text-brand-green transition">Accueil</a>
+          <a href="#apropos" class="hover:text-brand-green transition">À propos</a>
+          <a href="#priorites" class="hover:text-brand-green transition">Priorités</a>
+          <a href="#terrebonne" class="hover:text-brand-green transition">Terrebonne</a>
+          <a href="#contact" class="bg-white text-brand-darkgreen px-4 py-2 rounded-full font-semibold hover:bg-brand-green transition">
             S'impliquer
           </a>
         </div>
@@ -40,32 +61,32 @@
     </div>
 
     <!-- Liens Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-green-800 pb-4 px-4 shadow-inner">
-      <a href="#accueil" class="mobile-link block py-3 border-b border-green-700 hover:text-green-200">Accueil</a>
-      <a href="#apropos" class="mobile-link block py-3 border-b border-green-700 hover:text-green-200">À propos</a>
-      <a href="#priorites" class="mobile-link block py-3 border-b border-green-700 hover:text-green-200">Priorités</a>
-      <a href="#terrebonne" class="mobile-link block py-3 border-b border-green-700 hover:text-green-200">Terrebonne</a>
-      <a href="#contact" class="mobile-link block mt-4 text-center bg-white text-green-700 px-4 py-3 rounded-full font-semibold shadow">
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-darkgreen pb-4 px-4 shadow-inner">
+      <a href="#accueil" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">Accueil</a>
+      <a href="#apropos" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">À propos</a>
+      <a href="#priorites" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">Priorités</a>
+      <a href="#terrebonne" class="mobile-link block py-3 border-b border-brand-darkgreen hover:text-brand-green">Terrebonne</a>
+      <a href="#contact" class="mobile-link block mt-4 text-center bg-white text-brand-darkgreen px-4 py-3 rounded-full font-semibold shadow">
         S'impliquer
       </a>
     </div>
   </nav>
 
   <!-- Section Héro -->
-  <section id="accueil" class="bg-green-50 py-16 md:py-24 px-4 relative overflow-hidden">
+  <section id="accueil" class="bg-brand-green py-16 md:py-24 px-4 relative overflow-hidden">
     <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center relative z-10 gap-10">
       <div class="md:w-1/2 text-center md:text-left">
-        <a href="https://www.elections.ca/content.aspx?section=ele&dir=2026/24073&document=index&lang=f" target="_blank" rel="noreferrer" class="inline-block bg-green-200 hover:bg-green-300 text-green-900 px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-green-300 transition">
+        <a href="https://www.elections.ca/content.aspx?section=ele&dir=2026/24073&document=index&lang=f" target="_blank" rel="noreferrer" class="inline-block bg-brand-green hover:bg-brand-green text-brand-darkgreen px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-brand-green transition">
           Élection partielle | 13 avril 2026
         </a>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-          Votez pour du <span class="text-green-600">Changement</span> dans Terrebonne
+          Votez pour du <span class="text-brand-darkgreen">Changement</span> dans Terrebonne
         </h1>
         <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
           Un leader communautaire prêt à se battre pour le logement abordable, la santé, l'éducation et notre environnement.
         </p>
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-          <a href="#priorites" class="bg-green-600 text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-green-700 hover:shadow-xl transition flex items-center justify-center">
+          <a href="#priorites" class="bg-brand-darkgreen text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-brand-darkgreen hover:shadow-xl transition flex items-center justify-center">
             Mes priorités <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
           </a>
         </div>
@@ -73,7 +94,7 @@
       <div class="md:w-1/2 flex justify-center w-full">
         <!-- Espace pour la photo -->
         <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gray-200 rounded-full border-8 border-white shadow-xl overflow-hidden flex items-center justify-center relative">
-          <span class="text-gray-500 font-medium absolute z-10 px-4 text-center"><img src="benjaminrankin_square.jpeg" alt="Benjamin Rankin - Parti Vert" class="scale-125 object-cover"></span>           <div class="absolute inset-0 bg-green-100 mix-blend-multiply"></div>
+          <span class="text-gray-500 font-medium absolute z-10 px-4 text-center"><img src="benjaminrankin_square.jpeg" alt="Benjamin Rankin - Parti Vert" class="scale-125 object-cover"></span>           <div class="absolute inset-0 bg-brand-green mix-blend-multiply"></div>
         </div>
       </div>
     </div>
@@ -82,16 +103,17 @@
   <!-- Section À Propos -->
   <section id="apropos" class="py-20 px-4 bg-white">
     <div class="max-w-4xl mx-auto text-center">
+      <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Parti Vert" class="h-16 mx-auto mb-8">
       <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
         À propos de Benjamin
-        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-green-500 rounded-full"></div>
+        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand-green rounded-full"></div>
       </h2>
       <div class="text-lg text-gray-600 space-y-6 text-left mt-10 p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm">
         <p>
           D'origine néo-zélandaise, j'ai grandi dans plusieurs pays avant de m'établir au Québec en 1990. Architecte depuis près de 30 ans, j'ai consacré ma carrière à bâtir des infrastructures publiques, notamment des écoles et des hôpitaux, tout en cherchant constamment à réduire notre empreinte écologique.
         </p>
         <p>
-          En tant que père d'une fille de 15 ans et écologiste passionné depuis les années 90, je me suis joint au <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" class="text-green-600 font-bold hover:underline">Parti vert du Canada</a> il y a 7 ans, car c'est la seule formation politique qui rejoint véritablement mes valeurs sociales et environnementales.
+          En tant que père d'une fille de 15 ans et écologiste passionné depuis les années 90, je me suis joint au <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" class="text-brand-darkgreen font-bold hover:underline">Parti vert du Canada</a> il y a 7 ans, car c'est la seule formation politique qui rejoint véritablement mes valeurs sociales et environnementales.
         </p>
         <p>
           L'âge de pouvoir des vieux hommes blancs a eu des effets désastreux pour notre planète et pour nos sociétés. Aujourd'hui, je me présente comme votre candidat pour représenter vos intérêts et bâtir un avenir équitable, sain et durable pour Terrebonne. Il n'y a pas de planète B.
@@ -105,13 +127,13 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-gray-900 mb-16 text-center relative inline-block left-1/2 transform -translate-x-1/2">
         Mes priorités nationales et locales
-        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-500 rounded-full"></div>
+        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-brand-green rounded-full"></div>
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Carte 1 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 group">
-          <div class="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+          <div class="bg-brand-green w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-brand-darkgreen group-hover:bg-brand-darkgreen group-hover:text-white transition">
             <i data-lucide="home" class="h-8 w-8"></i>
           </div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Logement abordable</h3>
@@ -122,7 +144,7 @@
 
         <!-- Carte 2 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 group">
-          <div class="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+          <div class="bg-brand-green w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-brand-darkgreen group-hover:bg-brand-darkgreen group-hover:text-white transition">
             <i data-lucide="heart-pulse" class="h-8 w-8"></i>
           </div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Santé et file social</h3>
@@ -133,7 +155,7 @@
 
         <!-- Carte 3 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 group">
-          <div class="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+          <div class="bg-brand-green w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-brand-darkgreen group-hover:bg-brand-darkgreen group-hover:text-white transition">
             <i data-lucide="leaf" class="h-8 w-8"></i>
           </div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Urgence climatique</h3>
@@ -145,7 +167,7 @@
         <!-- Carte 4 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 group md:col-span-2 lg:col-span-3">
            <div class="flex items-center mb-4">
-             <i data-lucide="graduation-cap" class="h-8 w-8 text-green-600 mr-3"></i>
+             <i data-lucide="graduation-cap" class="h-8 w-8 text-brand-darkgreen mr-3"></i>
              <h3 class="text-xl font-bold text-gray-900">Renouveau démocratique et jeunesse</h3>
            </div>
            <p class="text-gray-600 leading-relaxed max-w-4xl">
@@ -157,38 +179,38 @@
   </section>
 
   <!-- Section Locale (Terrebonne) -->
-  <section id="terrebonne" class="py-20 px-4 bg-green-800 text-white relative overflow-hidden">
+  <section id="terrebonne" class="py-20 px-4 bg-brand-darkgreen text-white relative overflow-hidden">
     <!-- Cercles décoratifs en arrière-plan -->
-    <div class="absolute top-0 right-0 w-64 h-64 bg-green-700 rounded-full mix-blend-multiply filter blur-2xl opacity-70 transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-green-900 rounded-full mix-blend-multiply filter blur-2xl opacity-70 transform -translate-x-1/2 translate-y-1/2"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-darkgreen rounded-full mix-blend-multiply filter blur-2xl opacity-70 transform translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-darkgreen rounded-full mix-blend-multiply filter blur-2xl opacity-70 transform -translate-x-1/2 translate-y-1/2"></div>
     
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
       <div class="md:w-1/2">
         <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Une vision locale pour Terrebonne</h2>
-        <ul class="space-y-6 text-green-50 text-lg">
-          <li class="flex items-start bg-green-700/50 p-4 rounded-xl border border-green-600/50">
-            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-green-300 shrink-0 mt-1"></i>
+        <ul class="space-y-6 text-brand-green text-lg">
+          <li class="flex items-start bg-brand-darkgreen/50 p-4 rounded-xl border border-brand-darkgreen/50">
+            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-brand-green shrink-0 mt-1"></i>
             <span><strong>Soutien à l'économie locale :</strong> Renforcer nos PME locales avec une stratégie nationale « Acheter Propre » et diversifier nos échanges commerciaux.</span>
           </li>
-          <li class="flex items-start bg-green-700/50 p-4 rounded-xl border border-green-600/50">
-            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-green-300 shrink-0 mt-1"></i>
+          <li class="flex items-start bg-brand-darkgreen/50 p-4 rounded-xl border border-brand-darkgreen/50">
+            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-brand-green shrink-0 mt-1"></i>
             <span><strong>Verdissement et résilience :</strong> Amélioration de la résilience face aux inondations locales et augmentation du verdissement urbain de notre ville.</span>
           </li>
-          <li class="flex items-start bg-green-700/50 p-4 rounded-xl border border-green-600/50">
-            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-green-300 shrink-0 mt-1"></i>
+          <li class="flex items-start bg-brand-darkgreen/50 p-4 rounded-xl border border-brand-darkgreen/50">
+            <i data-lucide="map-pin" class="h-7 w-7 mr-4 text-brand-green shrink-0 mt-1"></i>
             <span><strong>Transports collectifs :</strong> Faciliter le transport actif et collectif gratuit pour se libérer de la dépendance au pétrole.</span>
           </li>
         </ul>
       </div>
       <div class="md:w-1/2 w-full">
         <div class="bg-white text-gray-800 p-8 md:p-10 rounded-3xl shadow-2xl">
-          <h3 class="text-2xl font-bold mb-4 text-green-700">Votre vote compte</h3>
+          <h3 class="text-2xl font-bold mb-4 text-brand-darkgreen">Votre vote compte</h3>
           <p class="mb-6 text-gray-600 leading-relaxed">
             Notre belle collectivité compte plus de 113 797 résidents. Nous avons un des plus hauts taux de jeunes familles au Québec. Vous méritez un député qui comprend vos réalités (coût de l'épicerie, hypothèque, transports) et qui vous représentera avec intégrité à Ottawa.
           </p>
           <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 text-center">
             <div class="text-sm text-gray-500 uppercase tracking-wider font-semibold mb-1">Rappel important</div>
-            <a href="https://www.elections.ca/content.aspx?section=ele&dir=2026/24073&document=index&lang=f" target="_blank" rel="noreferrer" class="text-lg font-bold text-green-700 hover:text-green-800 hover:underline block">
+            <a href="https://www.elections.ca/content.aspx?section=ele&dir=2026/24073&document=index&lang=f" target="_blank" rel="noreferrer" class="text-lg font-bold text-brand-darkgreen hover:text-brand-darkgreen hover:underline block">
               Élection partielle : Lundi 13 avril 2026
             </a>
           </div>
@@ -202,15 +224,13 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 border-b border-gray-800 pb-12">
       <div>
         <div class="flex items-center space-x-3 mb-6">
-          <div class="bg-green-600 p-2 rounded-lg">
-            <i data-lucide="leaf" class="h-6 w-6 text-white"></i>
-          </div>
+          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Parti Vert" class="h-12">
           <span class="font-bold text-2xl text-white tracking-tight">Benjamin Rankin</span>
         </div>
         <p class="mb-6 text-gray-400 max-w-sm leading-relaxed">
           Candidat du Parti vert du Canada pour la circonscription de Terrebonne. Bâtissons ensemble un Canada équitable et durable.
         </p>
-        <a href="mailto:ben@benjaminrankin.ca" class="inline-flex items-center text-green-400 hover:text-green-300 font-medium transition">
+        <a href="mailto:ben@benjaminrankin.ca" class="inline-flex items-center text-brand-green hover:text-brand-green font-medium transition">
           <i data-lucide="mail" class="h-5 w-5 mr-2"></i>
           Nous contacter par courriel
         </a>
@@ -219,13 +239,13 @@
       <div class="flex flex-col md:items-end justify-center">
         <h4 class="text-white font-bold mb-6 text-lg">Rejoignez la campagne en ligne</h4>
         <div class="flex space-x-4">
-          <a href="https://www.facebook.com/share/1KQruQ6u1b/" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-green-600 hover:scale-110 transition-all text-white" aria-label="Facebook">
+          <a href="https://www.facebook.com/share/1KQruQ6u1b/" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-brand-darkgreen hover:scale-110 transition-all text-white" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://x.com/LesVertsCanada/status/2031368747659800981" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-green-600 hover:scale-110 transition-all text-white" aria-label="Twitter">
+          <a href="https://x.com/LesVertsCanada/status/2031368747659800981" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-brand-darkgreen hover:scale-110 transition-all text-white" aria-label="Twitter">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
           </a>
-          <a href="https://www.instagram.com/thegreenparty_canada" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-green-600 hover:scale-110 transition-all text-white" aria-label="Instagram">
+          <a href="https://www.instagram.com/thegreenparty_canada" target="_blank" rel="noreferrer" class="bg-gray-800 p-4 rounded-full hover:bg-brand-darkgreen hover:scale-110 transition-all text-white" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
         </div>

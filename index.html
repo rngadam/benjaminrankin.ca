@@ -75,13 +75,17 @@
   <nav class="bg-brand-darkgreen text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
-        <a href="#accueil" class="flex items-center space-x-2 min-w-0 mr-4" aria-label="Accueil - Benjamin Rankin">
-          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-7 sm:h-8 md:h-10 shrink-0">
-          <span class="font-bold text-base sm:text-lg md:text-xl tracking-tight ml-2 truncate">Benjamin Rankin</span>
-        </a>
+        <div class="flex items-center space-x-2 min-w-0 mr-4">
+          <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" class="shrink-0 block" aria-label="Parti Vert du Canada">
+            <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-7 sm:h-8 md:h-10 shrink-0">
+          </a>
+          <a href="#accueil" class="flex items-center" aria-label="Accueil - Benjamin Rankin">
+            <span class="font-bold text-base sm:text-lg md:text-xl tracking-tight ml-2 truncate">Benjamin Rankin</span>
+          </a>
+        </div>
         
         <!-- Navigation Bureau -->
-        <div class="hidden md:flex space-x-8 items-center shrink-0">
+        <div class="hidden space-x-8 items-center shrink-0">
           <a href="#accueil" class="hover:text-brand-green transition">Accueil</a>
           <a href="#apropos" class="hover:text-brand-green transition">À propos</a>
           <a href="#priorites" class="hover:text-brand-green transition">Priorités</a>
@@ -95,7 +99,7 @@
         </div>
 
         <!-- Menu Mobile Bouton -->
-        <div class="md:hidden flex items-center shrink-0">
+        <div class="flex items-center shrink-0">
           <button id="mobile-menu-btn" class="focus:outline-none" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
             <i data-lucide="menu" id="menu-icon" class="h-6 w-6" aria-hidden="true"></i>
             <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden" aria-hidden="true"></i>
@@ -105,7 +109,7 @@
     </div>
 
     <!-- Liens Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-brand-darkgreen pb-4 px-4 shadow-inner" role="region" aria-label="Menu de navigation mobile">
+    <div id="mobile-menu" class="hidden bg-brand-darkgreen pb-4 px-4 shadow-inner" role="region" aria-label="Menu de navigation mobile">
       <a href="#accueil" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Accueil</a>
       <a href="#apropos" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">À propos</a>
       <a href="#priorites" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Priorités</a>
@@ -195,7 +199,9 @@
   <!-- Section À Propos -->
   <section id="apropos" class="py-20 px-4 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Logo du Parti Vert" class="h-16 mx-auto mb-8">
+      <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" class="block w-fit mx-auto" aria-label="Parti Vert du Canada">
+        <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Logo du Parti Vert" class="h-16 mx-auto mb-8">
+      </a>
       <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
         À propos de Benjamin
         <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand-green rounded-full"></div>
@@ -357,22 +363,33 @@
   <footer id="contact" class="bg-gray-950 text-gray-300 py-16 px-4">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 border-b border-gray-800 pb-12">
       <div>
-        <a href="#accueil" class="flex flex-wrap items-center gap-3 mb-6 inline-flex" aria-label="Accueil - Benjamin Rankin">
-          <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-8 sm:h-10 md:h-12">
-          <span class="font-bold text-xl sm:text-2xl text-white tracking-tight">Benjamin Rankin</span>
-        </a>
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" aria-label="Parti Vert du Canada">
+            <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-8 sm:h-10 md:h-12">
+          </a>
+          <a href="#accueil" class="inline-flex" aria-label="Accueil - Benjamin Rankin">
+            <span class="font-bold text-xl sm:text-2xl text-white tracking-tight">Benjamin Rankin</span>
+          </a>
+        </div>
         <p class="mb-6 text-gray-400 max-w-sm leading-relaxed">
           Candidat du Parti vert du Canada pour la circonscription de Terrebonne. Bâtissons ensemble un Canada équitable et durable.
         </p>
         <a href="mailto:ben@benjaminrankin.ca" class="inline-flex items-center text-brand-green hover:text-white font-medium transition">
           <i data-lucide="mail" class="h-5 w-5 mr-2"></i>
-          Nous contacter par courriel
+          ben@benjaminrankin.ca
         </a>
       </div>
       
       <div class="flex flex-col md:items-end justify-center">
+        <p class="mb-4 text-gray-400 md:text-right leading-relaxed max-w-sm">
+          Terrebonniens et Terrebonniennes, rejoignez le mouvement pour un avenir équitable et durable.
+        </p>
+        <a href="https://www.greenparty.ca/LiC" target="_blank" rel="noreferrer" class="inline-flex items-center bg-brand-green text-brand-darkgreen px-6 py-2.5 rounded-full font-bold hover:bg-white hover:text-brand-darkgreen transition shadow-lg mb-6">
+          Devenir membre
+          <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+        </a>
         <!-- Les liens de réseaux sociaux ont été déplacés dans la section #rejoignez -->
-        <div class="flex space-x-4 mt-6 md:mt-0">
+        <div class="flex space-x-4 mt-2 md:mt-0">
           <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-brand-green transition" aria-label="Page Facebook Officielle">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>

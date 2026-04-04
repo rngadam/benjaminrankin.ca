@@ -103,24 +103,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="#pourquoi-voter-vert" class="hover:text-brand-green transition">Pourquoi Vert ?</a>
           <a href="#rejoignez" class="hover:text-brand-green transition">Rejoignez</a>
           <a href="#terrebonne" class="hover:text-brand-green transition">Terrebonne</a>
+        </div>
 
-          <div class="flex items-center space-x-4 border-l border-white/20 pl-4">
+        <!-- Social Icons & Menu Mobile Bouton -->
+        <div class="flex items-center space-x-4 shrink-0">
+          <div class="flex items-center space-x-3 sm:space-x-4 border-r border-white/20 pr-4">
             <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Page Facebook Officielle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 sm:h-6 sm:w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
             <a href="https://www.instagram.com/benjaminrankin2026/" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Instagram Officiel">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 sm:h-6 sm:w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
           </div>
 
-          <a href="#contact" class="bg-white text-brand-darkgreen px-4 py-2 rounded-full font-semibold hover:bg-brand-green transition">
+          <a href="#contact" class="hidden md:inline-block bg-white text-brand-darkgreen px-4 py-2 rounded-full font-semibold hover:bg-brand-green transition">
             S'impliquer
           </a>
-        </div>
 
-        <!-- Menu Mobile Bouton -->
-        <div class="flex items-center shrink-0">
-          <button id="mobile-menu-btn" class="focus:outline-none" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
             <i data-lucide="menu" id="menu-icon" class="h-6 w-6" aria-hidden="true"></i>
             <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden" aria-hidden="true"></i>
           </button>
@@ -129,7 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Liens Mobile -->
-    <div id="mobile-menu" class="hidden bg-brand-darkgreen pb-4 px-4 shadow-inner" role="region" aria-label="Menu de navigation mobile">
+    <div id="mobile-menu" class="hidden bg-brand-darkgreen pb-4 px-4 shadow-inner md:hidden" role="region" aria-label="Menu de navigation mobile">
       <a href="#accueil" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Accueil</a>
       <a href="#apropos" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">À propos</a>
       <a href="#priorites" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Priorités</a>
@@ -137,15 +137,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#pourquoi-voter-vert" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Pourquoi Vert ?</a>
       <a href="#rejoignez" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Rejoignez</a>
       <a href="#terrebonne" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Terrebonne</a>
-
-      <div class="flex justify-center space-x-6 py-4 border-b border-white/10">
-        <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Page Facebook Officielle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/benjaminrankin2026/" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Instagram Officiel">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-      </div>
 
       <a href="#contact" class="mobile-link block mt-4 text-center bg-white text-brand-darkgreen px-4 py-3 rounded-full font-semibold shadow">
         S'impliquer
@@ -208,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
         <a href="https://bsky.app/profile/canadiangreens.bsky.social/post/3mgpjot6y7c27" target="_blank" rel="noreferrer" class="bg-gray-900 p-5 rounded-full hover:bg-brand-green hover:-translate-y-1 transition-all text-white shadow-xl" aria-label="Bluesky">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8"><path d="M12.0001 21.018c-3.14-2.115-8.214-6.425-9.61-11.758-.962-3.666 1.017-5.59 4.316-5.187 2.19.268 4.295 2.176 5.294 3.738 1-1.562 3.104-3.47 5.294-3.738 3.299-.403 5.278 1.521 4.316 5.187-1.396 5.333-6.47 9.643-9.61 11.758z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M12.0001 21.018c-3.14-2.115-8.214-6.425-9.61-11.758-.962-3.666 1.017-5.59 4.316-5.187 2.19.268 4.295 2.176 5.294 3.738 1-1.562 3.104-3.47 5.294-3.738 3.299-.403 5.278 1.521 4.316 5.187-1.396 5.333-6.47 9.643-9.61 11.758z"/></svg>
         </a>
       </div>
 
@@ -217,7 +208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Suivez Benjamin Rankin
         </h3>
         <p class="text-lg text-gray-800 font-medium mb-8">
-          Abonnez-vous à la page Facebook officielle de la campagne pour ne rien manquer de nos activités sur le terrain.
+          Abonnez-vous aux comptes sociaux officiels de la campagne pour ne rien manquer de nos activités sur le terrain.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-[#1877F2] px-8 py-4 rounded-full hover:bg-[#166fe5] hover:-translate-y-1 transition-all text-white font-bold shadow-xl" aria-label="Page Facebook Officielle">
@@ -240,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Logo du Parti Vert" class="h-16 mx-auto mb-8">
       </a>
       <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
-        À propos de Benjamin
+        À propos de Benjamin Rankin
         <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand-green rounded-full"></div>
       </h2>
       <div class="text-lg text-gray-600 space-y-6 text-left mt-10 p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm">
@@ -254,7 +245,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Les approches politiques du passé, trop souvent déconnectées de nos réalités citoyennes, ont laissé des traces profondes sur notre environnement et notre filet social. Aujourd'hui, je me présente comme votre candidat pour tourner la page et porter une vision rassembleuse. Ensemble, nous pouvons bâtir un avenir équitable, sain et durable pour Terrebonne, car il n'y a pas de planète B.        </p>
       </div>
       <div class="mt-8">
-        <img src="images/photo-vieux-terrebonne.jpg" alt="Vieux Terrebonne" class="w-full h-auto max-h-[500px] object-cover rounded-3xl shadow-md border border-gray-100">
+        <img src="images/photo-vieux-terrebonne.jpg" alt="Vieux Terrebonne" class="w-full h-auto max-h-[500px] md:hover:max-h-none transition-all duration-500 object-cover object-[center_top] rounded-3xl shadow-md border border-gray-100">
       </div>
     </div>
   </section>

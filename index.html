@@ -15,11 +15,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <meta name="description" content="Benjamin Rankin - Candidat du Parti vert du Canada pour la circonscription de Terrebonne.">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="images/favicon.ico">
   <script>
     tailwind.config = {
       theme: {
@@ -85,17 +85,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="bg-brand-darkgreen text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex justify-between items-center h-16">
-        <div class="flex items-center space-x-2 min-w-0 mr-4">
+        <div class="flex items-center space-x-2 min-w-0 mr-2 sm:mr-4">
           <a href="https://www.greenparty.ca/fr" target="_blank" rel="noreferrer" class="shrink-0 block" aria-label="Parti Vert du Canada">
-            <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-7 sm:h-8 md:h-10 shrink-0">
+            <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_White_RGB.png" alt="Logo du Parti Vert" class="h-6 sm:h-8 md:h-10 shrink-0">
           </a>
           <a href="#accueil" class="flex items-center" aria-label="Accueil - Benjamin Rankin">
-            <span class="font-bold text-base sm:text-lg md:text-xl tracking-tight ml-2 truncate">Benjamin Rankin</span>
+            <span class="font-bold text-sm sm:text-lg md:text-xl tracking-tight ml-1 sm:ml-2 truncate hidden sm:block">Benjamin Rankin</span>
           </a>
         </div>
         
         <!-- Navigation Bureau -->
-        <div class="hidden space-x-8 items-center shrink-0">
+        <div class="hidden lg:flex space-x-8 items-center shrink-0">
           <a href="#accueil" class="hover:text-brand-green transition">Accueil</a>
           <a href="#apropos" class="hover:text-brand-green transition">À propos</a>
           <a href="#priorites" class="hover:text-brand-green transition">Priorités</a>
@@ -103,23 +103,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="#pourquoi-voter-vert" class="hover:text-brand-green transition">Pourquoi Vert ?</a>
           <a href="#rejoignez" class="hover:text-brand-green transition">Rejoignez</a>
           <a href="#terrebonne" class="hover:text-brand-green transition">Terrebonne</a>
-          <a href="#contact" class="bg-white text-brand-darkgreen px-4 py-2 rounded-full font-semibold hover:bg-brand-green transition">
-            S'impliquer
-          </a>
         </div>
 
-        <!-- Menu Mobile Bouton -->
-        <div class="flex items-center shrink-0">
-          <button id="mobile-menu-btn" class="focus:outline-none" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
-            <i data-lucide="menu" id="menu-icon" class="h-6 w-6" aria-hidden="true"></i>
-            <i data-lucide="x" id="close-icon" class="h-6 w-6 hidden" aria-hidden="true"></i>
+        <!-- Social Icons & Menu Mobile Bouton -->
+        <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+          <div class="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 lg:border-r lg:border-white/20 lg:pr-4">
+            <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Page Facebook Officielle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/benjaminrankin2026/" target="_blank" rel="noreferrer" class="text-white hover:text-brand-green transition" aria-label="Instagram Officiel">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+
+          <a href="#contact" class="hidden lg:inline-block bg-white text-brand-darkgreen px-4 py-2 rounded-full font-semibold hover:bg-brand-green transition">
+            S'impliquer
+          </a>
+
+          <button id="mobile-menu-btn" class="lg:hidden focus:outline-none ml-2 sm:ml-0" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <i data-lucide="menu" id="menu-icon" class="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true"></i>
+            <i data-lucide="x" id="close-icon" class="h-5 w-5 sm:h-6 sm:w-6 hidden" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Liens Mobile -->
-    <div id="mobile-menu" class="hidden bg-brand-darkgreen pb-4 px-4 shadow-inner" role="region" aria-label="Menu de navigation mobile">
+    <div id="mobile-menu" class="hidden bg-brand-darkgreen pb-4 px-4 shadow-inner lg:hidden" role="region" aria-label="Menu de navigation mobile">
       <a href="#accueil" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Accueil</a>
       <a href="#apropos" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">À propos</a>
       <a href="#priorites" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Priorités</a>
@@ -127,6 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#pourquoi-voter-vert" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Pourquoi Vert ?</a>
       <a href="#rejoignez" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Rejoignez</a>
       <a href="#terrebonne" class="mobile-link block py-3 border-b border-white/10 hover:text-brand-green">Terrebonne</a>
+
       <a href="#contact" class="mobile-link block mt-4 text-center bg-white text-brand-darkgreen px-4 py-3 rounded-full font-semibold shadow">
         S'impliquer
       </a>
@@ -160,7 +171,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="md:w-1/2 flex flex-col items-center justify-center w-full">
         <!-- Espace pour la photo -->
         <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gray-200 rounded-full border-8 border-white shadow-xl overflow-hidden flex items-center justify-center relative mb-6">
-          <span class="text-gray-500 font-medium absolute z-10 px-4 text-center"><img src="benjaminrankin_square.jpeg" alt="Benjamin Rankin - Parti Vert" class="scale-125 object-cover"></span>           <div class="absolute inset-0 bg-brand-green mix-blend-multiply"></div>
+          <span class="text-gray-500 font-medium absolute z-10 px-4 text-center"><img src="images/benjaminrankin_square.jpeg" alt="Benjamin Rankin - Parti Vert" class="scale-125 object-cover"></span>           <div class="absolute inset-0 bg-brand-green mix-blend-multiply"></div>
         </div>
         <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight uppercase drop-shadow-md">Benjamin Rankin</h2>
       </div>
@@ -187,6 +198,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://www.instagram.com/p/DVtNYPaDX6W/" target="_blank" rel="noreferrer" class="bg-gray-900 p-5 rounded-full hover:bg-brand-green hover:-translate-y-1 transition-all text-white shadow-xl" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
+        <a href="https://bsky.app/profile/canadiangreens.bsky.social/post/3mgpjot6y7c27" target="_blank" rel="noreferrer" class="bg-gray-900 p-5 rounded-full hover:bg-brand-green hover:-translate-y-1 transition-all text-white shadow-xl" aria-label="Bluesky">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+        </a>
       </div>
 
       <div class="mt-16 pt-12 border-t border-brand-darkgreen/10">
@@ -194,12 +208,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Suivez Benjamin Rankin
         </h3>
         <p class="text-lg text-gray-800 font-medium mb-8">
-          Abonnez-vous à la page Facebook officielle de la campagne pour ne rien manquer de nos activités sur le terrain.
+          Abonnez-vous aux comptes sociaux officiels de la campagne pour ne rien manquer de nos activités sur le terrain.
         </p>
-        <div class="flex justify-center">
-          <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="inline-flex items-center bg-[#1877F2] px-8 py-4 rounded-full hover:bg-[#166fe5] hover:-translate-y-1 transition-all text-white font-bold shadow-xl" aria-label="Page Facebook Officielle">
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-[#1877F2] px-8 py-4 rounded-full hover:bg-[#166fe5] hover:-translate-y-1 transition-all text-white font-bold shadow-xl" aria-label="Page Facebook Officielle">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 mr-3"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             Page Facebook Officielle
+          </a>
+          <a href="https://www.instagram.com/benjaminrankin2026/" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-[#E1306C] px-8 py-4 rounded-full hover:bg-[#C13584] hover:-translate-y-1 transition-all text-white font-bold shadow-xl" aria-label="Instagram Officiel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 mr-3"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram Officiel
           </a>
         </div>
       </div>
@@ -213,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <img src="https://cdn.greenparty.ca/wp-content/uploads/2025/02/GP_FR-1L_RGB.png" alt="Logo du Parti Vert" class="h-16 mx-auto mb-8">
       </a>
       <h2 class="text-3xl font-bold text-gray-900 mb-8 relative inline-block">
-        À propos de Benjamin
+        À propos de Benjamin Rankin
         <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-brand-green rounded-full"></div>
       </h2>
       <div class="text-lg text-gray-600 space-y-6 text-left mt-10 p-8 bg-gray-50 rounded-3xl border border-gray-100 shadow-sm">
@@ -225,6 +243,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
         <p>
           Les approches politiques du passé, trop souvent déconnectées de nos réalités citoyennes, ont laissé des traces profondes sur notre environnement et notre filet social. Aujourd'hui, je me présente comme votre candidat pour tourner la page et porter une vision rassembleuse. Ensemble, nous pouvons bâtir un avenir équitable, sain et durable pour Terrebonne, car il n'y a pas de planète B.        </p>
+      </div>
+      <div class="mt-8">
+        <img src="images/photo-vieux-terrebonne.jpg" alt="Vieux Terrebonne" class="w-full h-auto max-h-[500px] md:hover:max-h-none transition-all duration-500 object-cover object-[center_top] rounded-3xl shadow-md border border-gray-100">
       </div>
     </div>
   </section>
@@ -316,13 +337,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Carte 4 -->
         <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition border border-gray-100 group md:col-span-2 lg:col-span-3">
-           <div class="flex items-center mb-4">
-             <i data-lucide="graduation-cap" class="h-8 w-8 text-brand-darkgreen mr-3"></i>
-             <h3 class="text-xl font-bold text-gray-900">Renouveau démocratique et jeunesse</h3>
-           </div>
-           <p class="text-gray-600 leading-relaxed max-w-4xl">
-             Les jeunes ont besoin d'une voix. Nous voulons instaurer la représentation proportionnelle, abaisser l'âge de vote à 16 ans et éliminer les dettes étudiantes fédérales. Nous bâtirons un Corps des jeunes pour le climat (CJC) offrant des emplois valorisants dans la transition écologique.
-           </p>
+          <div class="bg-brand-green w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-brand-darkgreen group-hover:bg-brand-darkgreen group-hover:text-white transition">
+            <i data-lucide="graduation-cap" class="h-8 w-8"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Renouveau démocratique et jeunesse</h3>
+          <p class="text-gray-600 leading-relaxed max-w-4xl">
+            Les jeunes ont besoin d'une voix. Nous voulons instaurer la représentation proportionnelle, abaisser l'âge de vote à 16 ans et éliminer les dettes étudiantes fédérales. Nous bâtirons un Corps des jeunes pour le climat (CJC) offrant des emplois valorisants dans la transition écologique.
+          </p>
         </div>
       </div>
     </div>
@@ -394,14 +415,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="mb-4 text-gray-400 md:text-right leading-relaxed max-w-sm">
           Terrebonniens et Terrebonniennes, rejoignez le mouvement pour un avenir équitable et durable.
         </p>
-        <a href="https://www.greenparty.ca/LiC" target="_blank" rel="noreferrer" class="inline-flex items-center bg-brand-green text-brand-darkgreen px-6 py-2.5 rounded-full font-bold hover:bg-white hover:text-brand-darkgreen transition shadow-lg mb-6">
-          Devenir membre
-          <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-        </a>
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
+          <a href="https://www.greenparty.ca/fr/civicrm/contribute/transact?reset=1&id=105&source=FSA.W.2023-24073&ridingtitle=Terrebonne&candidateName=Benjamin+Rankin" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-brand-accent text-brand-darkgreen px-6 py-2.5 rounded-full font-bold hover:bg-white hover:text-brand-darkgreen transition shadow-lg w-full sm:w-auto">
+            <i data-lucide="heart" class="mr-2 h-4 w-4"></i>
+            Faire un don
+          </a>
+          <a href="https://www.greenparty.ca/LiC" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-brand-green text-brand-darkgreen px-6 py-2.5 rounded-full font-bold hover:bg-white hover:text-brand-darkgreen transition shadow-lg w-full sm:w-auto">
+            Devenir membre
+            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+          </a>
+        </div>
         <!-- Les liens de réseaux sociaux ont été déplacés dans la section #rejoignez -->
         <div class="flex space-x-4 mt-2 md:mt-0">
           <a href="https://www.facebook.com/profile.php?id=61573296651767" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-brand-green transition" aria-label="Page Facebook Officielle">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/benjaminrankin2026/" target="_blank" rel="noreferrer" class="text-gray-400 hover:text-brand-green transition" aria-label="Instagram Officiel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
         </div>
       </div>
@@ -456,18 +486,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     // Logique des cartes thématiques
     const themes = [
-      { src: "GP-FR-Social-Media-Affordable-Housing.png", alt: "Logement abordable" },
-      { src: "GP-FR-Social-Media-Caring-for-Canadians.png", alt: "Prendre soin des canadiens" },
-      { src: "GP-FR-Social-Media-Climate-Action.png", alt: "Action climatique" },
-      { src: "GP-FR-Social-Media-Disability-Justice.png", alt: "Justice pour les personnes en situation de handicap" },
-      { src: "GP-FR-Social-Media-Emergency-Preparedness.png", alt: "Préparation aux urgences" },
-      { src: "GP-FR-Social-Media-Fair-Taxation.png", alt: "Imposition équitable" },
-      { src: "GP-FR-Social-Media-Green-Democracy.png", alt: "Démocratie verte" },
-      { src: "GP-FR-Social-Media-Indigenous-Reconciliation.png", alt: "Réconciliation autochtone" },
-      { src: "GP-FR-Social-Media-More-Health-Care.png", alt: "Plus de soins de santé" },
-      { src: "GP-FR-Social-Media-Peace-and-Security.png", alt: "Paix et sécurité" },
-      { src: "GP-FR-Social-Media-Stop-the-Hate.png", alt: "Stoppons la haine" },
-      { src: "GP-FR-Social-Media-Strong-Democracy.png", alt: "Démocratie forte" }
+      { src: "images/GP-FR-Social-Media-Affordable-Housing.png", alt: "Logement abordable" },
+      { src: "images/GP-FR-Social-Media-Caring-for-Canadians.png", alt: "Prendre soin des canadiens" },
+      { src: "images/GP-FR-Social-Media-Climate-Action.png", alt: "Action climatique" },
+      { src: "images/GP-FR-Social-Media-Disability-Justice.png", alt: "Justice pour les personnes en situation de handicap" },
+      { src: "images/GP-FR-Social-Media-Emergency-Preparedness.png", alt: "Préparation aux urgences" },
+      { src: "images/GP-FR-Social-Media-Fair-Taxation.png", alt: "Imposition équitable" },
+      { src: "images/GP-FR-Social-Media-Green-Democracy.png", alt: "Démocratie verte" },
+      { src: "images/GP-FR-Social-Media-Indigenous-Reconciliation.png", alt: "Réconciliation autochtone" },
+      { src: "images/GP-FR-Social-Media-More-Health-Care.png", alt: "Plus de soins de santé" },
+      { src: "images/GP-FR-Social-Media-Peace-and-Security.png", alt: "Paix et sécurité" },
+      { src: "images/GP-FR-Social-Media-Stop-the-Hate.png", alt: "Stoppons la haine" },
+      { src: "images/GP-FR-Social-Media-Strong-Democracy.png", alt: "Démocratie forte" }
     ];
 
     // Initialize state

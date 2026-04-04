@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto"></canvas>
+    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto" role="img" aria-label="Zone de jeu Pacman: Benjamin contre les pollueurs"></canvas>
   </div>
 
   <!-- Mobile Controls -->
@@ -126,14 +126,15 @@
     let ghosts = [
       { x: 9, y: 10, dx: 0, dy: -1, color: ghostColors[0] },
       { x: 10, y: 10, dx: 0, dy: -1, color: ghostColors[1] },
-      { x: 9, y: 11, dx: 1, dy: 0, color: ghostColors[2] },
-      { x: 10, y: 11, dx: -1, dy: 0, color: ghostColors[3] }
+      { x: 8, y: 10, dx: 1, dy: 0, color: ghostColors[2] },
+      { x: 11, y: 10, dx: -1, dy: 0, color: ghostColors[3] }
     ];
 
     let score = 0;
     const maxScore = map.flat().filter(cell => cell === 0).length; // Total empty spots
-    let gameLoop;
+    let animationFrameId;
     let isGameOver = false;
+    let lastTime = 0;
 
     // Draw Map
     function drawMap() {
@@ -341,7 +342,7 @@
 
     function endGame(win) {
       isGameOver = true;
-      clearInterval(gameLoop);
+      cancelAnimationFrame(animationFrameId);
 
       gameOverScreen.classList.remove('hidden');
       if (win) {
@@ -355,17 +356,24 @@
       }
     }
 
-    function update() {
+    function update(time) {
       if (isGameOver) return;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (time - lastTime >= 1000 / FPS) {
+        lastTime = time;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      updatePlayer();
-      updateGhosts();
+        updatePlayer();
+        updateGhosts();
 
-      drawMap();
-      drawPlayer();
-      drawGhosts();
+        drawMap();
+        drawPlayer();
+        drawGhosts();
+      }
+
+      if (!isGameOver) {
+        animationFrameId = requestAnimationFrame(update);
+      }
     }
 
     // Controls
@@ -388,7 +396,7 @@
 
     // Initial draw and start loop
     drawMap();
-    gameLoop = setInterval(update, 1000 / FPS);
+    animationFrameId = requestAnimationFrame(update);
 
   </script>
 </body>

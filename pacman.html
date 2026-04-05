@@ -39,7 +39,7 @@
     <div class="text-brand-accent font-bold">Arbres: <span id="score">0</span></div>
   </div>
 
-  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-6">
+  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-6 flex-grow w-full max-h-[70vh] flex items-center justify-center">
     <!-- Game Over overlay -->
     <div id="game-over" class="absolute inset-0 bg-black/90 flex flex-col items-center justify-center hidden z-10">
       <h2 id="game-over-title" class="text-4xl font-bold text-red-500 mb-4">Fin de la partie</h2>
@@ -49,7 +49,7 @@
       </button>
     </div>
 
-    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto" role="img" aria-label="Zone de jeu Pacman: Benjamin contre les pollueurs"></canvas>
+    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto w-full h-full object-contain" role="img" aria-label="Zone de jeu Pacman: Benjamin contre les pollueurs"></canvas>
   </div>
 
   <!-- Mobile Controls -->
@@ -84,7 +84,7 @@
     const TILE_SIZE = 20;
     const COLS = canvas.width / TILE_SIZE;
     const ROWS = canvas.height / TILE_SIZE;
-    const FPS = 10;
+    const FPS = 5;
 
     // 0 = Path (empty), 1 = Wall, 2 = Tree
     // Simple maze map representing Terrebonne streets
@@ -214,6 +214,11 @@
         ctx.closePath();
         ctx.fill();
 
+        // Top Hat
+        ctx.fillStyle = 'black';
+        ctx.fillRect(gx - 4, gy - 8, 8, 4);
+        ctx.fillRect(gx - 6, gy - 4, 12, 1);
+
         // Eyes
         ctx.fillStyle = 'white';
         ctx.beginPath();
@@ -226,6 +231,19 @@
         ctx.arc(gx - 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
         ctx.arc(gx + 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
         ctx.fill();
+
+        // Monocle on right eye
+        ctx.strokeStyle = 'gold';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(gx + 3, gy - 2, 3, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Monocle chain
+        ctx.beginPath();
+        ctx.moveTo(gx + 5, gy - 2);
+        ctx.lineTo(gx + 8, gy + 4);
+        ctx.stroke();
       });
     }
 

@@ -29,9 +29,9 @@
     }
   </script>
 </head>
-<body class="min-h-screen bg-gray-900 text-white font-sans flex flex-col items-center justify-center p-4">
+<body class="h-[100dvh] bg-gray-900 text-white font-sans flex flex-col items-center justify-center p-2 md:p-4 overflow-hidden">
 
-  <div class="w-full max-w-2xl mb-4 flex justify-between items-center">
+  <div class="w-full max-w-2xl mb-2 flex justify-between items-center flex-shrink-0">
     <a href="index.html" class="flex items-center text-brand-green hover:text-white transition">
       <i data-lucide="arrow-left" class="mr-2 h-5 w-5"></i> Retour
     </a>
@@ -39,7 +39,7 @@
     <div class="text-brand-accent font-bold">Arbres: <span id="score">0</span></div>
   </div>
 
-  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-6 flex-grow w-full max-h-[70vh] flex items-center justify-center">
+  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-2 flex-1 min-h-0 w-full max-w-4xl flex items-center justify-center">
     <!-- Game Over overlay -->
     <div id="game-over" class="absolute inset-0 bg-black/90 flex flex-col items-center justify-center hidden z-10">
       <h2 id="game-over-title" class="text-4xl font-bold text-red-500 mb-4">Fin de la partie</h2>
@@ -53,7 +53,7 @@
   </div>
 
   <!-- Mobile Controls -->
-  <div class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto md:hidden">
+  <div class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto md:hidden flex-shrink-0 mb-2">
     <div></div>
     <button id="btn-up" class="bg-gray-800 p-4 rounded-xl active:bg-brand-green flex justify-center touch-manipulation">
       <i data-lucide="arrow-up" class="h-8 w-8"></i>

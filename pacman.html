@@ -29,17 +29,22 @@
     }
   </script>
 </head>
-<body class="min-h-screen bg-gray-900 text-white font-sans flex flex-col items-center justify-center p-4">
+<body class="h-[100dvh] bg-gray-900 text-white font-sans flex flex-col items-center justify-center p-2 md:p-4 overflow-hidden">
 
-  <div class="w-full max-w-2xl mb-4 flex justify-between items-center">
+  <div class="w-full max-w-2xl mb-2 flex justify-between items-center flex-shrink-0">
     <a href="index.html" class="flex items-center text-brand-green hover:text-white transition">
       <i data-lucide="arrow-left" class="mr-2 h-5 w-5"></i> Retour
     </a>
-    <h1 class="text-xl md:text-2xl font-bold text-center">Benjamin vs Les Pollueurs</h1>
-    <div class="text-brand-accent font-bold">Arbres: <span id="score">0</span></div>
+    <h1 class="text-xl md:text-2xl font-bold text-center hidden md:block">Benjamin vs Les Pollueurs</h1>
+    <div class="text-brand-accent font-bold text-sm md:text-base flex flex-col items-end">
+      <div>Niveau: <span id="level">1</span></div>
+      <div>Arbres: <span id="score">0</span></div>
+    </div>
   </div>
 
-  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-6">
+  <h1 class="text-xl font-bold text-center mb-2 md:hidden">Benjamin vs Les Pollueurs</h1>
+
+  <div class="relative bg-black border-4 border-brand-darkgreen rounded-lg shadow-2xl overflow-hidden mb-2 flex-1 min-h-0 w-full max-w-4xl flex items-center justify-center">
     <!-- Game Over overlay -->
     <div id="game-over" class="absolute inset-0 bg-black/90 flex flex-col items-center justify-center hidden z-10">
       <h2 id="game-over-title" class="text-4xl font-bold text-red-500 mb-4">Fin de la partie</h2>
@@ -49,11 +54,11 @@
       </button>
     </div>
 
-    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto" role="img" aria-label="Zone de jeu Pacman: Benjamin contre les pollueurs"></canvas>
+    <canvas id="gameCanvas" width="400" height="400" class="block mx-auto w-full h-full object-contain" role="img" aria-label="Zone de jeu Pacman: Benjamin contre les pollueurs"></canvas>
   </div>
 
   <!-- Mobile Controls -->
-  <div class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto md:hidden">
+  <div class="grid grid-cols-3 gap-2 w-full max-w-xs mx-auto md:hidden flex-shrink-0 mb-2">
     <div></div>
     <button id="btn-up" class="bg-gray-800 p-4 rounded-xl active:bg-brand-green flex justify-center touch-manipulation">
       <i data-lucide="arrow-up" class="h-8 w-8"></i>
@@ -76,6 +81,7 @@
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const scoreElement = document.getElementById('score');
+    const levelElement = document.getElementById('level');
     const gameOverScreen = document.getElementById('game-over');
     const gameOverTitle = document.getElementById('game-over-title');
     const gameOverDesc = document.getElementById('game-over-desc');
@@ -84,20 +90,20 @@
     const TILE_SIZE = 20;
     const COLS = canvas.width / TILE_SIZE;
     const ROWS = canvas.height / TILE_SIZE;
-    const FPS = 10;
+    let FPS = 3;
 
-    // 0 = Path (empty), 1 = Wall, 2 = Tree
+    // 0 = Path (empty), 1 = Wall, 2 = Tree, 3 = Power Pellet
     // Simple maze map representing Terrebonne streets
-    let map = [
+    const originalMap = [
       [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-      [1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1],
+      [1,3,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,3,1],
       [1,0,1,1,0,1,1,1,0,1,1,0,1,1,1,0,1,1,0,1],
       [1,0,1,1,0,1,1,1,0,1,1,0,1,1,1,0,1,1,0,1],
       [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
       [1,0,1,1,0,1,0,1,1,1,1,1,1,0,1,0,1,1,0,1],
       [1,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,1],
       [1,1,1,1,0,1,1,1,0,1,1,0,1,1,1,0,1,1,1,1],
-      [1,1,1,1,0,1,0,0,0,0,0,0,0,0,1,0,1,1,1,1],
+      [0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
       [1,1,1,1,0,1,0,1,1,0,0,1,1,0,1,0,1,1,1,1],
       [1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1],
       [1,1,1,1,0,1,0,1,1,1,1,1,1,0,1,0,1,1,1,1],
@@ -107,9 +113,10 @@
       [1,0,1,1,0,1,1,1,0,1,1,0,1,1,1,0,1,1,0,1],
       [1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1],
       [1,1,0,1,0,1,0,1,1,1,1,1,1,0,1,0,1,0,1,1],
-      [1,0,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,1],
+      [1,3,0,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,3,1],
       [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ];
+    let map = originalMap.map(row => [...row]);
 
     // Player (Benjamin Rankin)
     let player = {
@@ -123,18 +130,28 @@
 
     // Ghosts (Billionaire Polluters)
     const ghostColors = ['#FF0000', '#FFB8FF', '#00FFFF', '#FFB852'];
-    let ghosts = [
-      { x: 9, y: 10, dx: 0, dy: -1, color: ghostColors[0] },
-      { x: 10, y: 10, dx: 0, dy: -1, color: ghostColors[1] },
-      { x: 8, y: 10, dx: 1, dy: 0, color: ghostColors[2] },
-      { x: 11, y: 10, dx: -1, dy: 0, color: ghostColors[3] }
-    ];
+
+    function createInitialGhosts() {
+      return [
+        { x: 9, y: 10, dx: 0, dy: -1, color: ghostColors[0], dead: false },
+        { x: 10, y: 10, dx: 0, dy: -1, color: ghostColors[1], dead: false },
+        { x: 8, y: 10, dx: 1, dy: 0, color: ghostColors[2], dead: false },
+        { x: 11, y: 10, dx: -1, dy: 0, color: ghostColors[3], dead: false }
+      ];
+    }
+
+    let ghosts = createInitialGhosts();
 
     let score = 0;
-    const maxScore = map.flat().filter(cell => cell === 0).length; // Total empty spots
+    let level = 1;
+    let treesPlanted = 0;
+    const maxTrees = originalMap.flat().filter(cell => cell === 0 || cell === 3).length; // Total spots that can be planted
     let animationFrameId;
     let isGameOver = false;
     let lastTime = 0;
+
+    let powerModeTimer = 0;
+    const POWER_MODE_DURATION = 30; // Frames ghost is edible
 
     // Draw Map
     function drawMap() {
@@ -142,6 +159,10 @@
         for (let c = 0; c < COLS; c++) {
           let x = c * TILE_SIZE;
           let y = r * TILE_SIZE;
+
+          // Base black path
+          ctx.fillStyle = '#000';
+          ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
 
           if (map[r][c] === 1) {
             // Wall
@@ -151,54 +172,87 @@
             ctx.strokeRect(x, y, TILE_SIZE, TILE_SIZE);
           } else if (map[r][c] === 2) {
             // Tree planted
-            ctx.fillStyle = '#000'; // Path background
-            ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
             ctx.font = '16px Arial';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText('🌲', x + TILE_SIZE/2, y + TILE_SIZE/2);
-          } else {
-            // Empty Path
-            ctx.fillStyle = '#000';
-            ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+          } else if (map[r][c] === 3) {
+            // Power Pellet
+            ctx.fillStyle = '#24B24A'; // Green party brand green
+            ctx.beginPath();
+            ctx.arc(x + TILE_SIZE/2, y + TILE_SIZE/2, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Blink effect using Date.now()
+            if (Math.floor(Date.now() / 250) % 2 === 0) {
+                ctx.fillStyle = '#FFF';
+                ctx.beginPath();
+                ctx.arc(x + TILE_SIZE/2, y + TILE_SIZE/2, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
           }
         }
       }
     }
 
+    const pacmanImg = new Image();
+    pacmanImg.src = 'images/benjamin_pacman_face.png';
+
     // Draw Player (Benjamin)
     function drawPlayer() {
-      let px = player.x * TILE_SIZE + TILE_SIZE/2;
-      let py = player.y * TILE_SIZE + TILE_SIZE/2;
-      let radius = TILE_SIZE/2 - 2;
+      let px = player.x * TILE_SIZE;
+      let py = player.y * TILE_SIZE;
 
-      // Hoodie (Green Circle)
-      ctx.fillStyle = '#24B24A';
-      ctx.beginPath();
-      ctx.arc(px, py, radius, 0, Math.PI * 2);
-      ctx.fill();
+      if (pacmanImg.complete && pacmanImg.naturalWidth > 0) {
+        ctx.save();
+        ctx.translate(px + TILE_SIZE/2, py + TILE_SIZE/2);
 
-      // Face (Bald white guy)
-      ctx.fillStyle = '#FFD1B3'; // Skin tone
-      ctx.beginPath();
-      ctx.arc(px, py - 2, radius - 3, 0, Math.PI * 2);
-      ctx.fill();
+        // Rotate based on direction
+        if (player.dx === 1) ctx.rotate(0);
+        else if (player.dx === -1) ctx.rotate(Math.PI);
+        else if (player.dy === 1) ctx.rotate(Math.PI / 2);
+        else if (player.dy === -1) ctx.rotate(-Math.PI / 2);
+        // Default to facing right if stationary or on initial load
+        else ctx.rotate(0);
 
-      // Eyes
-      ctx.fillStyle = '#000';
-      ctx.beginPath();
-      ctx.arc(px - 3, py - 4, 1.5, 0, Math.PI * 2);
-      ctx.arc(px + 3, py - 4, 1.5, 0, Math.PI * 2);
-      ctx.fill();
+        ctx.drawImage(pacmanImg, -TILE_SIZE/2, -TILE_SIZE/2, TILE_SIZE, TILE_SIZE);
+        ctx.restore();
+      } else {
+        // Fallback drawing if image isn't loaded
+        ctx.fillStyle = '#FFD61C'; // Yellow pacman color
+        ctx.beginPath();
+        let mouthOpen = (Math.floor(Date.now() / 150) % 2) === 0 ? 0.2 : 0;
+        let startAngle = mouthOpen * Math.PI;
+        let endAngle = (2 - mouthOpen) * Math.PI;
+
+        ctx.save();
+        ctx.translate(px + TILE_SIZE/2, py + TILE_SIZE/2);
+
+        if (player.dx === 1) ctx.rotate(0);
+        else if (player.dx === -1) ctx.rotate(Math.PI);
+        else if (player.dy === 1) ctx.rotate(Math.PI / 2);
+        else if (player.dy === -1) ctx.rotate(-Math.PI / 2);
+
+        ctx.arc(0, 0, TILE_SIZE/2 - 2, startAngle, endAngle);
+        ctx.lineTo(0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
     }
 
     // Draw Ghosts (Polluters)
     function drawGhosts() {
+      let isBlue = powerModeTimer > 0;
+      let isBlinking = powerModeTimer > 0 && powerModeTimer < 10 && (Math.floor(Date.now() / 200) % 2 === 0);
+
       ghosts.forEach(ghost => {
+        // Skip dead ghosts
+        if (ghost.dead) return;
+
         let gx = ghost.x * TILE_SIZE + TILE_SIZE/2;
         let gy = ghost.y * TILE_SIZE + TILE_SIZE/2;
 
-        ctx.fillStyle = ghost.color;
+        ctx.fillStyle = isBlue ? (isBlinking ? 'white' : 'blue') : ghost.color;
 
         // Ghost body
         ctx.beginPath();
@@ -214,29 +268,77 @@
         ctx.closePath();
         ctx.fill();
 
-        // Eyes
-        ctx.fillStyle = 'white';
-        ctx.beginPath();
-        ctx.arc(gx - 3, gy - 2, 2.5, 0, Math.PI * 2);
-        ctx.arc(gx + 3, gy - 2, 2.5, 0, Math.PI * 2);
-        ctx.fill();
+        if (isBlue) {
+            // Scared eyes
+            ctx.fillStyle = isBlinking ? 'red' : '#FFD1B3'; // Scared eye color
+            ctx.fillRect(gx - 4, gy - 3, 2, 2);
+            ctx.fillRect(gx + 2, gy - 3, 2, 2);
 
-        ctx.fillStyle = 'blue';
-        ctx.beginPath();
-        ctx.arc(gx - 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
-        ctx.arc(gx + 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
-        ctx.fill();
+            // Frowning mouth
+            ctx.strokeStyle = isBlinking ? 'red' : '#FFD1B3';
+            ctx.beginPath();
+            ctx.moveTo(gx - 4, gy + 3);
+            ctx.lineTo(gx - 2, gy + 1);
+            ctx.lineTo(gx, gy + 3);
+            ctx.lineTo(gx + 2, gy + 1);
+            ctx.lineTo(gx + 4, gy + 3);
+            ctx.stroke();
+        } else {
+            // Top Hat
+            ctx.fillStyle = 'black';
+            ctx.fillRect(gx - 4, gy - 8, 8, 4);
+            ctx.fillRect(gx - 6, gy - 4, 12, 1);
+
+            // Eyes
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(gx - 3, gy - 2, 2.5, 0, Math.PI * 2);
+            ctx.arc(gx + 3, gy - 2, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = 'blue';
+            ctx.beginPath();
+            ctx.arc(gx - 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
+            ctx.arc(gx + 3 + ghost.dx, gy - 2 + ghost.dy, 1, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Monocle on right eye
+            ctx.strokeStyle = 'gold';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(gx + 3, gy - 2, 3, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Monocle chain
+            ctx.beginPath();
+            ctx.moveTo(gx + 5, gy - 2);
+            ctx.lineTo(gx + 8, gy + 4);
+            ctx.stroke();
+        }
       });
     }
 
     function checkCollision(x, y) {
-      if (x < 0 || x >= COLS || y < 0 || y >= ROWS) return true;
-      return map[y][x] === 1;
+      // Allow moving off-screen for horizontal tunnels
+      if (y === 8 && (x < 0 || x >= COLS)) return false;
+
+      // Wrapping coordinates internally just for the collision check so the game engine doesn't break
+      let wrappedX = x;
+      if (wrappedX < 0) wrappedX = COLS - 1;
+      if (wrappedX >= COLS) wrappedX = 0;
+
+      if (wrappedX < 0 || wrappedX >= COLS || y < 0 || y >= ROWS) return true;
+      return map[y][wrappedX] === 1;
     }
 
     function updatePlayer() {
       // Try next direction first
-      if (!checkCollision(player.x + player.nextDx, player.y + player.nextDy)) {
+      // Temporarily wrap to check collision across boundaries if moving offscreen
+      let testNextX = player.x + player.nextDx;
+      if (testNextX < 0) testNextX = COLS - 1;
+      if (testNextX >= COLS) testNextX = 0;
+
+      if (!checkCollision(testNextX, player.y + player.nextDy)) {
         player.dx = player.nextDx;
         player.dy = player.nextDy;
       }
@@ -253,17 +355,50 @@
         player.y = nextY;
       }
 
+      // Eat Power Pellet
+      if (map[player.y][player.x] === 3) {
+          map[player.y][player.x] = 0; // Turn into empty path so a tree can be planted next pass
+          score += 5; // Bonus points
+          scoreElement.innerText = score;
+          powerModeTimer = POWER_MODE_DURATION;
+      }
+
       // Plant a tree
       if (map[player.y][player.x] === 0) {
         map[player.y][player.x] = 2; // 2 represents a tree
         score++;
+        treesPlanted++;
         scoreElement.innerText = score;
 
-        // Check win
-        if (score >= maxScore - 20) { // Win if almost all empty spaces are filled
-          endGame(true);
+        // Check level progression
+        if (treesPlanted >= maxTrees - 20) { // Next level if almost all empty spaces are filled
+          levelUp();
         }
       }
+    }
+
+    function levelUp() {
+      level++;
+      levelElement.innerText = level;
+      FPS += 1; // Increase speed
+
+      // Reset map
+      map = originalMap.map(row => [...row]);
+      treesPlanted = 0;
+
+      // Reset Player
+      player = {
+        x: 1,
+        y: 1,
+        dx: 0,
+        dy: 0,
+        nextDx: 0,
+        nextDy: 0
+      };
+
+      // Reset Ghosts
+      ghosts = createInitialGhosts();
+      powerModeTimer = 0;
     }
 
     function getValidGhostMoves(ghost) {
@@ -286,21 +421,26 @@
     }
 
     function updateGhosts() {
+      if (powerModeTimer > 0) powerModeTimer--;
+
       ghosts.forEach(ghost => {
+        if (ghost.dead) return; // Dead ghosts don't move
         let validMoves = getValidGhostMoves(ghost);
 
         if (validMoves.length > 0) {
           // Simple AI: Prefer to move towards player, but add some randomness
+          // If power mode is active, prefer to move AWAY from player
           let bestMove = validMoves[0];
-          let minDistance = Infinity;
+          let minDistance = powerModeTimer > 0 ? -Infinity : Infinity;
 
           validMoves.forEach(move => {
             let nextX = ghost.x + move.dx;
             let nextY = ghost.y + move.dy;
             let dist = Math.abs(nextX - player.x) + Math.abs(nextY - player.y);
 
-            // 20% chance to move randomly instead of tracking player perfectly
-            if (dist < minDistance || Math.random() < 0.2) {
+            // 20% chance to move randomly instead of tracking perfectly
+            let condition = powerModeTimer > 0 ? (dist > minDistance) : (dist < minDistance);
+            if (condition || Math.random() < 0.2) {
               minDistance = dist;
               bestMove = move;
             }
@@ -330,12 +470,19 @@
         if (map[ghost.y][ghost.x] === 2) {
           map[ghost.y][ghost.x] = 0;
           score = Math.max(0, score - 1); // Prevent negative score
+          treesPlanted = Math.max(0, treesPlanted - 1);
           scoreElement.innerText = score;
         }
 
         // Check player collision
         if (ghost.x === player.x && ghost.y === player.y) {
-          endGame(false);
+          if (powerModeTimer > 0) {
+            ghost.dead = true;
+            score += 20; // Big bonus for eating a ghost
+            scoreElement.innerText = score;
+          } else {
+            endGame(false);
+          }
         }
       });
     }
